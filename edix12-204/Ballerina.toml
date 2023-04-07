@@ -1,0 +1,8 @@
+[package]
+org = "xyz"
+name = "edix12_204"
+version = "0.1.0"
+distribution = "2201.4.1"
+
+[build-options]
+observabilityIncluded = true

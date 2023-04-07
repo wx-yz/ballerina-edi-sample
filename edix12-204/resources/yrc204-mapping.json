@@ -1,0 +1,202 @@
+{
+    "name": "LoadTender",
+    "delimiters": {
+        "segment": "~",
+        "field": "*",
+        "component": ":",
+        "repetition": "^"
+    },
+    "segments": [
+        {
+            "code": "ST",
+            "tag": "header",
+            "fields": [
+                { "tag": "txSetIDCode" },
+                { "tag": "txSetControlNum" }
+            ]
+        },
+        {
+            "tag": "shipmentInfo",
+            "minOccurances": 1,
+            "maxOccurances": 1,
+            "segments": [
+                {
+                    "code": "B2",
+                    "tag": "shipmentTx",
+                    "fields": [
+                        { "tag": "null_1" },
+                        { "tag": "carrierCode" },
+                        { "tag": "null_2" },
+                        { "tag": "shipmentId" },
+                        { "tag": "null_3" },
+                        { "tag": "paymentMethod" }
+                    ]
+                },
+                {
+                    "code": "B2A",
+                    "tag": "purpose",
+                    "fields": [
+                        { "tag": "referenceId" },
+                        { "tag": "referenceIdQualifier" }
+                    ]
+                },
+                {
+                    "code": "L11",
+                    "tag": "businessInstructions",
+                    "minOccurances": 0,
+                    "maxOccurances": -1,
+                    "fields": [
+                        { "tag": "referenceId" },
+                        { "tag": "referenceIdQualifier" }
+                    ]
+                },
+                {
+                    "code": "PLD",
+                    "tag": "paletteInfo",
+                    "fields": [
+                        { "tag": "quantity" }
+                    ]
+                },
+                {
+                    "tag": "shipmentDetails",
+                    "minOccurances": 1,
+                    "maxOccurances": -1,
+                    "segments": [
+                        {
+                            "code": "S5",
+                            "tag": "stopInfo",
+                            "minOccurances": 1,
+                            "maxOccurances": -1,
+                            "fields": [
+                                { "tag": "stopSequence" },
+                                { "tag": "stopReasonCode" }
+                            ]
+                        },
+                        {
+                            "code": "G62",
+                            "tag": "dateInfo",
+                            "minOccurances": 1,
+                            "maxOccurances": -1,
+                            "fields": [
+                                { "tag": "dateQualifier" },
+                                { "tag": "date" },
+                                { "tag": "timeQualifier" },
+                                { "tag": "time" }
+                            ]
+                        },
+                        {
+                            "code": "AT8",
+                            "tag": "packageInfo",
+                            "minOccurances": 0,
+                            "maxOccurances": -1,
+                            "fields": [
+                                { "tag": "weightQualifier" },
+                                { "tag": "weightUnitCode" },
+                                { "tag": "weight" },
+                                { "tag": "loadingQty" },
+                                { "tag": "null_1" },
+                                { "tag": "volumeUnitQualifier" },
+                                { "tag": "volume" }
+                            ]
+                        },
+                        {
+                            "code": "NTE",
+                            "tag": "notes",
+                            "minOccurances": 0,
+                            "maxOccurances": -1,
+                            "fields": [
+                                { "tag": "noteReference" },
+                                { "tag": "description" }
+                            ]
+                        },                       
+                        {
+                            "tag": "entityInfo",
+                            "minOccurances": 0,
+                            "maxOccurances": -1,
+                            "segments": [
+                                {
+                                    "code": "N1",
+                                    "tag": "entityId",
+                                    "minOccurances": 1,
+                                    "maxOccurances": -1,
+                                    "fields": [
+                                        { "tag": "entityIdCode" },
+                                        { "tag": "name" },
+                                        { "tag": "idCodeQualifier" },
+                                        { "tag": "idCode" }
+                                    ]
+                                },
+                                {
+                                    "code": "N3",
+                                    "tag": "address",
+                                    "minOccurances": 1,
+                                    "maxOccurances": -1,
+                                    "fields": [
+                                        { "tag": "address1" },
+                                        { "tag": "address2" }
+                                    ]
+                                },
+                                {
+                                    "code": "N4",
+                                    "tag": "cityStateZip",
+                                    "minOccurances": 1,
+                                    "maxOccurances": -1,
+                                    "fields": [
+                                        { "tag": "city" },
+                                        { "tag": "state" },
+                                        { "tag": "postalCode" },
+                                        { "tag": "countryCode" }
+                                    ]
+                                }
+                            ]                            
+                        },
+                        {
+                            "code": "G61",
+                            "tag": "contactInfo",
+                            "minOccurances": 0,
+                            "maxOccurances": 3,
+                            "fields": [
+                                { "tag": "contactFunctionCode" },
+                                { "tag": "name" },
+                                { "tag": "communicationNumberQualifier" },
+                                { "tag": "communicationNumber" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag": "summary",
+                    "maxOccurances": 0,
+                    "segments": [
+                        {
+                            "code": "L3",
+                            "tag": "totalWeightAndCharges",
+                            "fields": [
+                                { "tag": "weight" },
+                                { "tag": "weightQualifier" },
+                                { "tag": "null_1" },
+                                { "tag": "null_2" },
+                                { "tag": "null_3" },
+                                { "tag": "null_4" },
+                                { "tag": "null_5" },
+                                { "tag": "null_6" },
+                                { "tag": "volume" },
+                                { "tag": "volumeUnitQualifier" },
+                                { "tag": "landingQty" }
+                            ]
+                        },
+                        {
+                            "code": "SE",
+                            "tag": "trailer",
+                            "fields": [
+                                { "tag": "includedSegments" },
+                                { "tag": "txSetControlNum" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ]
+}
